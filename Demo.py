@@ -33,14 +33,14 @@ def grade(zhanghao, mima):
             cols = row.find_elements_by_tag_name('td')
             """该字典用于储存每科的详细信息"""
             new_dict = {
-                'id': zhanghao,
+                'xh': zhanghao,
                 'kcdm': cols[0].text,
                 'cj': cols[6].text,
                 'kcxz': cols[5].text,
                 'kcmc': cols[2].text,
                 'xf': cols[4].text
             }
-            list.append(new_dict)
+            grade_list.append(new_dict)
     except Exception:
         grade_list.append("用户名或密码错误，请重新输入！")
     finally:
