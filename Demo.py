@@ -44,7 +44,12 @@ def grade(zhanghao, mima):
     except Exception:
         grade_list.append("用户名或密码错误，请重新输入！")
     finally:
-        return json.dumps(grade_list, ensure_ascii=False)
+        final_dict = {
+            "data": grade_list,
+            "context": "grade"
+        }
+        browser.close()
+        return json.dumps(final_dict, ensure_ascii=False)
 
 
 # test
