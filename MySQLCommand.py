@@ -20,14 +20,15 @@ class MySQLCommand(object):
             self.conn = pymysql.connect(host=self.host, port=self.port, user=self.user,
                                         passwd=self.password, db=self.db, charset='utf8')
             self.cursor = self.conn.cursor()
-        except:
+        except BaseException:
             print('connect mysql error.')
 
     # 插入数据，插入之前先查询是否存在，如果存在就不再插入
     def insertData_s(self, my_dict):
         table = "student"  # 要操作的表格
         # 注意，这里查询的sql语句url=' %s '中%s的前后要有空格
-        sqlExit = "SELECT id FROM student  WHERE idcard = ' %s '" % (my_dict['idcard'])
+        sqlExit = "SELECT id FROM student  WHERE idcard = ' %s '" % (
+            my_dict['idcard'])
         res = self.cursor.execute(sqlExit)
         if res:  # res为查询到的数据条数如果大于0就代表数据已经存在
             print("数据已存在")
@@ -36,9 +37,12 @@ class MySQLCommand(object):
         try:
             cols = ', '.join(my_dict.keys())  # 用，分割
             values = '"," '.join(my_dict.values())
-            sql = "INSERT INTO student (%s) VALUES (%s)" % (cols, '"' + values + '"')
+            sql = "INSERT INTO student (%s) VALUES (%s)" % (
+                cols, '"' + values + '"')
             # 拼装后的sql如下
-            # INSERT INTO home_list (img_path, url, id, title) VALUES ("https://img.huxiucdn.com.jpg"," https://www.huxiu.com90.html"," 12"," ")
+            # INSERT INTO home_list (img_path, url, id, title) VALUES
+            # ("https://img.huxiucdn.com.jpg"," https://www.huxiu.com90.html","
+            # 12"," ")
             try:
                 result = self.cursor.execute(sql)
                 insert_id = self.conn.insert_id()  # 插入成功后返回的id
@@ -61,7 +65,8 @@ class MySQLCommand(object):
     def insertData_t(self, my_dict):
         table = "teacher"  # 要操作的表格
         # 注意，这里查询的sql语句url=' %s '中%s的前后要有空格
-        sqlExit = "SELECT idcard FROM teacher  WHERE idcard = ' %s '" % (my_dict['idcard'])
+        sqlExit = "SELECT idcard FROM teacher  WHERE idcard = ' %s '" % (
+            my_dict['idcard'])
         res = self.cursor.execute(sqlExit)
 
         if res:  # res为查询到的数据条数如果大于0就代表数据已经存在
@@ -71,7 +76,8 @@ class MySQLCommand(object):
         try:
             cols = ', '.join(my_dict.keys())  # 用，分割
             values = '"," '.join(my_dict.values())
-            sql = "INSERT INTO teacher (%s) VALUES (%s)" % (cols, '"' + values + '"')
+            sql = "INSERT INTO teacher (%s) VALUES (%s)" % (
+                cols, '"' + values + '"')
             try:
                 result = self.cursor.execute(sql)
                 insert_id = self.conn.insert_id()  # 插入成功后返回的id
@@ -101,8 +107,9 @@ class MySQLCommand(object):
                 return row[0]  # 返回最后一条数据的id
             else:
                 return 0  # 如果表格为空就返回0
-        except:
+        except BaseException:
             print(sql + ' execute failed.')
+
     def getLastId_t(self):
         sql = "SELECT max(id) FROM " + self.table_t
         try:
@@ -112,11 +119,13 @@ class MySQLCommand(object):
                 return row[0]  # 返回最后一条数据的id
             else:
                 return 0  # 如果表格为空就返回0
-        except:
+        except BaseException:
             print(sql + ' execute failed.')
+
     def closeMysql(self):
         self.cursor.close()
         self.conn.close()  # 创建数据库操作类的实例
+
     def insertData_id(self, id):
 
         try:

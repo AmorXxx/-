@@ -53,4 +53,4 @@ def grade(zhanghao, mima):
 
 
 # test
-grade('2016026358', '1')
+
