@@ -1,6 +1,7 @@
 from selenium import webdriver
 import time
 import json
+from selenium.webdriver.chrome.options import Options
 """成绩查询"""
 
 
@@ -9,7 +10,10 @@ def grade(zhanghao, mima):
     grade_list = []
     # noinspection PyBroadException
     try:
-        browser = webdriver.Chrome()
+        chrome_options = Options()
+        chrome_options.add_argument('--headless')
+        chrome_options.add_argument('--disable-gpu')  # 上面三行代码就是为了将Chrome不弹出界面，实现无界面爬取
+        browser = webdriver.Chrome(chrome_options=chrome_options)
         browser.get('http://60.219.165.24')
         username = browser.find_element_by_name('zjh')
         username.send_keys(zhanghao)
