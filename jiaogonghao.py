@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from selenium import webdriver
 from MySQLCommand import MySQLCommand
 from selenium.webdriver.chrome.options import Options
@@ -12,7 +13,7 @@ mysqlCommand = MySQLCommand()
 mysqlCommand.connectMysql()
 
 try:
-    for i in range(2004809590, 2016026399):
+    for i in range(2005800795, 2016026399):
         username = browser.find_element_by_name('zjh')
         username.send_keys(i)
         username = browser.find_element_by_name('mm')
