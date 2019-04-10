@@ -14,9 +14,10 @@ def spider():
     passid = open('passid.txt', 'a+')
     mysqlCommand = MySQLCommand()
     mysqlCommand.connectMysql()
+    startid = int(lastid.read()[-10:])
 
     try:
-        for i in range(int(lastid.read()[-10:]), 2016800000):
+        for i in range(startid, startid+1000):
             username = browser.find_element_by_name('zjh')
             username.send_keys(i)
             username = browser.find_element_by_name('mm')
@@ -35,7 +36,11 @@ def spider():
                 print(i)
     finally:
         browser.close()
+        ld = lastid.read()[-10:]
+        lastid1 = open('lastid.txt', 'w')
+        lastid1.write(ld)
         lastid.close()
+        lastid1.close()
         passid.close()
 
 

