@@ -12,7 +12,7 @@ passid = open('passid.txt', 'a+')
 
 try:
 
-    for i in range(int(lastid.read(10)), 2016026399):
+    for i in range(int(lastid.read()[-10:]), 2016026399):
         username = browser.find_element_by_name('zjh')
         username.send_keys(i)
         username = browser.find_element_by_name('mm')
@@ -28,8 +28,12 @@ try:
         else:
             print(i)
             lastid.write(str(i))
-            passid.write(str(i))
+            passid.write(str(i)+'\n')
 finally:
     browser.close()
+    ld = lastid.read()[-10:]
+    lastid1 = open('lastid.txt', 'w')
+    lastid1.write(ld)
     lastid.close()
+    lastid1.close()
     passid.close()
