@@ -28,7 +28,7 @@ class MySQLCommand(object):
     def insertData(self, tid):
 
         try:
-            sql = "INSERT INTO `JGH`.`jiaogonghao` (`id`, `jg-id`) VALUES ('0', %s)"%tid
+            sql = "INSERT INTO `JGH`.`jiaogonghao` (`id`, `jg-id`) VALUES ('0', %s)" % tid
             try:
                 result = self.cursor.execute(sql)
                 self.conn.commit()
