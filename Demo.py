@@ -1,7 +1,14 @@
+# -*- coding: utf-8 -*
+"""
+author: Amor
+
+finished: 2019-5-30
+
+"""
 from selenium import webdriver
 import time
-import json
 from selenium.webdriver.chrome.options import Options
+from MySQLComm import MySQLCommand
 """成绩查询"""
 
 
@@ -35,28 +42,40 @@ def grade(zhanghao, mima):
         browser.switch_to.frame(browser.find_element_by_name('mainFrame'))
         table = browser.find_element_by_class_name('displayTag')
         rows = table.find_elements_by_tag_name('tr')
-        for row in rows[1:-1]:
+        for row in rows[1:]:
             cols = row.find_elements_by_tag_name('td')
             """该字典用于储存每科的详细信息"""
-            new_dict = {
-                'xh': zhanghao,
-                'kcdm': cols[0].text,
-                'cj': cols[6].text,
-                'kcxz': cols[5].text,
-                'kcmc': cols[2].text,
-                'xf': cols[4].text
+            my_list = {
+                'id': 0,
+                'stu_no': zhanghao,
+                'course_no': cols[0].text,
+                'year': '2018-2019',
+                'score': cols[6].text,
+                'course_type': cols[5].text,
+                'term': 0,
+                'course_name': cols[2].text,
+                'count': cols[4].text
             }
-            grade_list.append(new_dict)
+            grade_list.append(my_list)
     except Exception:
-        grade_list.append("用户名或密码错误，请重新输入！")
+        print('用户名或密码输入错误')
     finally:
-        final_dict = {
-            "data": grade_list,
-            "context": "grade"
-        }
         browser.close()
-        return json.dumps(final_dict, ensure_ascii=False)
+        return grade_list
 
 
-# test
-grade(2016026358,1)
+def main():
+    mysqlCommand = MySQLCommand()
+    mysqlCommand.connectMysql()
+    res = mysqlCommand.getStuNo()
+    for row in range(len(res)):
+        zhanghao = res[row][0]
+        mysqlCommand.insertData(grade(zhanghao, 1))
+
+    mysqlCommand.closeMysql()
+
+
+
+
+if __name__ == '__main__':
+    main()
