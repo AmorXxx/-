@@ -15,7 +15,7 @@ class MySQLCommand(object):
         self.host = 'localhost'
         self.port = 3306  # 端口号
         self.user = 'root'  # 用户名
-        self.password = "root159357"  # 密码
+        self.password = "www708626"  # 密码
         self.db = "technew_study"  # 库
     # noinspection PyBroadException
 
@@ -34,8 +34,26 @@ class MySQLCommand(object):
             sqlexist = "SELECT id FROM grade  WHERE stu_no = '%s' and course_no = '%s' and score = '%s'" % (
                 d['stu_no'], d['course_no'], d['score'])
             res = self.cursor.execute(sqlexist)
+
             if res:  # res为查询到的数据条数如果大于0就代表数据已经存在
-                print("Data already exists")
+                #数据存在执行更新操作
+                try:
+                    updsql = """UPDATE grade SET score = '%s' WHERE stu_no = '%s' and course_no = '%s'""" % (d['score'], d['stu_no'], d['course_no'])
+                    try:
+                        re = self.cursor.execute(updsql)
+                        if re:
+                            print('Update score successfully!')
+                        else:
+                            print('Data has not changed')
+                    except pymysql.Error as e:
+                        # 发生错误时回滚
+                        self.conn.rollback()
+                        print("Update data failed，because %d: %s" % (e.args[0], e.args[1]))
+                except pymysql.Error as e:
+                    print("DBError，because %d: %s" % (e.args[0], e.args[1]))
+
+
+
         # 数据不存在才执行下面的插入操作
             else:
                 try:

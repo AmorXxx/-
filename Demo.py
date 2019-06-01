@@ -65,10 +65,12 @@ def grade(zhanghao, mima):
 
 
 def main():
+    print('Spider Launching!!!!')
     mysqlCommand = MySQLCommand()
     mysqlCommand.connectMysql()
     res = mysqlCommand.getStuNo()
     for row in range(len(res)):
+        print(res[row][0])
         zhanghao = res[row][0]
         mysqlCommand.insertData(grade(zhanghao, 1))
 

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="596738c5-b575-4194-bdec-8e8c7eef4018" name="Default Changelist" comment="规避bug">
+    <list default="true" id="596738c5-b575-4194-bdec-8e8c7eef4018" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo.py" beforeDir="false" afterPath="$PROJECT_DIR$/Demo.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MySQLComm.py" beforeDir="false" afterPath="$PROJECT_DIR$/MySQLComm.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -63,8 +64,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Demo.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
+            <state relative-caret-position="58">
+              <caret line="57" column="9" lean-forward="true" selection-start-line="57" selection-start-column="9" selection-end-line="57" selection-end-column="9" />
               <folding>
                 <element signature="e#66#96#0" expanded="true" />
               </folding>
@@ -75,8 +76,26 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MySQLComm.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="794">
-              <caret line="55" column="20" selection-start-line="55" selection-start-column="20" selection-end-line="55" selection-end-column="20" />
+            <state relative-caret-position="656">
+              <caret line="48" column="46" lean-forward="true" selection-start-line="48" selection-start-column="46" selection-end-line="48" selection-end-column="46" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../python/Lib/site-packages/pymysql/cursors.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="449">
+              <caret line="158" column="16" selection-start-line="158" selection-start-column="16" selection-end-line="158" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../python/Lib/site-packages/pymysql/connections.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="679">
+              <caret line="732" column="8" selection-start-line="732" selection-start-column="8" selection-end-line="732" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -84,7 +103,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="das://2c9108fb-9421-4784-982f-f5aa9ef56277/schema/technew_study/table/user">
           <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state projectRestartId="ceb072da-f15e-4b60-bd1b-87166ff9fcf7">
+            <state projectRestartId="90fd0df9-7764-4a03-8a13-6479d1da0a2c">
               <filtering />
             </state>
           </provider>
@@ -264,7 +283,8 @@
       <workItem from="1559195402443" duration="87000" />
       <workItem from="1559195799697" duration="8210000" />
       <workItem from="1559266902991" duration="11236000" />
-      <workItem from="1559311020016" duration="314000" />
+      <workItem from="1559311020016" duration="398000" />
+      <workItem from="1559350452084" duration="3713000" />
     </task>
     <task id="LOCAL-00001" summary="修复bug">
       <created>1553233450896</created>
@@ -350,11 +370,18 @@
       <option name="project" value="LOCAL" />
       <updated>1555567635291</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="修复bug">
+      <created>1559311353605</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1559311353605</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="84400000" />
+    <option name="totallyTimeSpent" value="88197000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -391,7 +418,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="SciView" order="3" />
-      <window_info anchor="right" id="Database" order="4" weight="0.32991102" />
+      <window_info anchor="right" id="Database" order="4" visible="true" weight="0.32991102" />
     </layout>
     <layout-to-restore>
       <window_info content_ui="combo" id="Project" order="0" weight="0.24982889" />
@@ -423,7 +450,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="修复bug" />
     <MESSAGE value="参数传递优化" />
     <MESSAGE value="添加headless方法" />
     <MESSAGE value="进度更新" />
@@ -432,11 +458,12 @@
     <MESSAGE value="增加阿里云服务器爬虫脚本" />
     <MESSAGE value="完善阿里云服务器爬虫脚本" />
     <MESSAGE value="规避bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="规避bug" />
+    <MESSAGE value="修复bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复bug" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/$test2.coverage" NAME="test2 Coverage Results" MODIFIED="1559271580374" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/$.coverage" NAME="教务网 Coverage Results" MODIFIED="1559277996904" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/$.coverage" NAME="教务网 Coverage Results" MODIFIED="1559351794601" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/../wamp64/www/backend/modules/v1/controllers/php_python.py">
@@ -539,13 +566,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test2.py" />
     <entry file="file://$PROJECT_DIR$/test.py" />
-    <entry file="das://2c9108fb-9421-4784-982f-f5aa9ef56277/schema/technew_study/table/user">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="ceb072da-f15e-4b60-bd1b-87166ff9fcf7">
-          <filtering />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/jiaogonghao-tn.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
@@ -556,20 +576,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="das://2c9108fb-9421-4784-982f-f5aa9ef56277/schema/technew_study/table/user">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="90fd0df9-7764-4a03-8a13-6479d1da0a2c">
+          <filtering />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Demo.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
+        <state relative-caret-position="58">
+          <caret line="57" column="9" lean-forward="true" selection-start-line="57" selection-start-column="9" selection-end-line="57" selection-end-column="9" />
           <folding>
             <element signature="e#66#96#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../python/Lib/site-packages/pymysql/connections.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="679">
+          <caret line="732" column="8" selection-start-line="732" selection-start-column="8" selection-end-line="732" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../python/Lib/site-packages/pymysql/cursors.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="449">
+          <caret line="158" column="16" selection-start-line="158" selection-start-column="16" selection-end-line="158" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/MySQLComm.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="794">
-          <caret line="55" column="20" selection-start-line="55" selection-start-column="20" selection-end-line="55" selection-end-column="20" />
+        <state relative-caret-position="656">
+          <caret line="48" column="46" lean-forward="true" selection-start-line="48" selection-start-column="46" selection-end-line="48" selection-end-column="46" />
         </state>
       </provider>
     </entry>
