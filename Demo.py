@@ -58,7 +58,7 @@ def grade(zhanghao, mima):
             }
             grade_list.append(my_list)
     except Exception:
-        print('用户名或密码输入错误')
+        print('Password is incorrect!')
     finally:
         browser.close()
         return grade_list
