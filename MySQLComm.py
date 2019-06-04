@@ -31,14 +31,14 @@ class MySQLCommand(object):
     # 插入数据，插入之前先查询是否存在，如果存在就不再插入
     def insertData(self, my_dict):
         for d in my_dict:
-            sqlexist = "SELECT id FROM grade  WHERE stu_no = '%s' and course_no = '%s' and score = '%s'" % (
+            sqlexist = "SELECT id FROM send_grade  WHERE stu_no = '%s' and course_no = '%s' and score = '%s'" % (
                 d['stu_no'], d['course_no'], d['score'])
             res = self.cursor.execute(sqlexist)
 
             if res:  # res为查询到的数据条数如果大于0就代表数据已经存在
                 #数据存在执行更新操作
                 try:
-                    updsql = """UPDATE grade SET score = '%s' WHERE stu_no = '%s' and course_no = '%s'""" % (d['score'], d['stu_no'], d['course_no'])
+                    updsql = """UPDATE send_grade SET score = '%s' WHERE stu_no = '%s' and course_no = '%s'""" % (d['score'], d['stu_no'], d['course_no'])
                     try:
                         re = self.cursor.execute(updsql)
                         if re:
@@ -57,8 +57,8 @@ class MySQLCommand(object):
         # 数据不存在才执行下面的插入操作
             else:
                 try:
-                    sql = """INSERT INTO grade VALUES (%d,'%s','%s','%s','%s','%s',%d,'%s','%s')""" % (
-                        d['id'], d['stu_no'], d['course_no'], d['year'], d['score'], d['course_type'], d['term'], d['course_name'], d['count'])
+                    sql = """INSERT INTO send_grade VALUES (%d,'%s','%s','%s','%s','%s',%s,'%d')""" % (
+                        d['id'], d['stu_no'], d['course_no'], d['score'], d['course_type'],  d['course_name'], d['count'], d['update'])
                     try:
                         result = self.cursor.execute(sql)
                         insert_id = self.conn.insert_id()  # 插入成功后返回的id

@@ -49,16 +49,15 @@ def grade(zhanghao, mima):
                 'id': 0,
                 'stu_no': zhanghao,
                 'course_no': cols[0].text,
-                'year': '2018-2019',
                 'score': cols[6].text,
                 'course_type': cols[5].text,
-                'term': 0,
                 'course_name': cols[2].text,
-                'count': cols[4].text
+                'count': cols[4].text,
+                'update': 0
             }
             grade_list.append(my_list)
     except Exception:
-        print('Password is incorrect!')
+        print('Password is INCORRECT! The stu_no is ' + zhanghao)
     finally:
         browser.close()
         return grade_list
@@ -70,7 +69,6 @@ def main():
     mysqlCommand.connectMysql()
     res = mysqlCommand.getStuNo()
     for row in range(len(res)):
-        print(res[row][0])
         zhanghao = res[row][0]
         mysqlCommand.insertData(grade(zhanghao, 1))
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dataSource name="jiaowuwang@localhost">
-  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.10">
+<dataSource name="teachnew_study@localhost">
+  <database-model serializer="dbm" dbms="MYSQL" family-id="MYSQL" format-version="4.15">
     <root id="1">
       <ServerVersion>5.7.9</ServerVersion>
       <DefaultEngine>MyISAM</DefaultEngine>
