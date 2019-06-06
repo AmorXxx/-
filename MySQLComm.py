@@ -58,7 +58,7 @@ class MySQLCommand(object):
             else:
                 try:
                     sql = """INSERT INTO send_grade VALUES (%d,'%s','%s','%s','%s','%s',%s,'%d')""" % (
-                        d['id'], d['stu_no'], d['course_no'], d['score'], d['course_type'],  d['course_name'], d['count'], d['update'])
+                        d['id'], d['stu_no'], d['course_no'], d['score'], d['course_type'],  d['course_name'], d['count'], d['send'])
                     try:
                         result = self.cursor.execute(sql)
                         insert_id = self.conn.insert_id()  # 插入成功后返回的id

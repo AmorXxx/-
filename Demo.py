@@ -18,7 +18,8 @@ def grade(zhanghao, mima):
     chrome_options = Options()
     chrome_options.add_argument('--headless')
     chrome_options.add_argument('--no-sandbox')
-    chrome_options.add_argument('--disable-gpu')  # 上面三行代码就是为了将Chrome不弹出界面，实现无界面爬取
+    # 上面三行代码就是为了将Chrome不弹出界面，实现无界面爬取
+    chrome_options.add_argument('--disable-gpu')
     browser = webdriver.Chrome(chrome_options=chrome_options)
     # noinspection PyBroadException
     try:
@@ -53,7 +54,7 @@ def grade(zhanghao, mima):
                 'course_type': cols[5].text,
                 'course_name': cols[2].text,
                 'count': cols[4].text,
-                'update': 0
+                'send': 0
             }
             grade_list.append(my_list)
     except Exception:
@@ -73,8 +74,6 @@ def main():
         mysqlCommand.insertData(grade(zhanghao, 1))
 
     mysqlCommand.closeMysql()
-
-
 
 
 if __name__ == '__main__':
