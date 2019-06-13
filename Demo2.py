@@ -2,7 +2,7 @@
 """
 author: Amor
 
-finished: 2019-5-30
+finished: 2019-6-13
 
 """
 from selenium import webdriver
@@ -69,7 +69,7 @@ def main():
     mysqlCommand = MySQLCommand()
     mysqlCommand.connectMysql()
     res = mysqlCommand.getStuNo()
-    for row in range(0, 600):
+    for row in range(600, len(res)):
         zhanghao = res[row][0]
         mysqlCommand.insertData(grade(zhanghao, 1))
 
