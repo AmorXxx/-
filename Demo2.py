@@ -72,7 +72,6 @@ def main():
     for row in range(600, len(res)):
         zhanghao = res[row][0]
         mysqlCommand.insertData(grade(zhanghao, 1))
-
     mysqlCommand.closeMysql()
 
 

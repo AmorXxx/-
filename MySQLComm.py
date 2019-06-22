@@ -50,7 +50,7 @@ class MySQLCommand(object):
                     print("Update data failed，because %d: %s" % (e.args[0], e.args[1]))
                 except pymysql.Error as e:
                     print("DBError，because %d: %s" % (e.args[0], e.args[1]))
-
+                self.conn.commit()
 
 
         # 数据不存在才执行下面的插入操作
@@ -70,6 +70,7 @@ class MySQLCommand(object):
                     print("Interrupt data failed，because %d: %s" % (e.args[0], e.args[1]))
                 except pymysql.Error as e:
                     print("DBError，because %d: %s" % (e.args[0], e.args[1]))
+                self.conn.commit()
 
     def getStuNo(self):
         sql = "SELECT stu_no FROM user"

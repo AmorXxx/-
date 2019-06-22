@@ -72,9 +72,9 @@ def main():
     for row in range(0, 600):
         zhanghao = res[row][0]
         mysqlCommand.insertData(grade(zhanghao, 1))
-
     mysqlCommand.closeMysql()
 
 
 if __name__ == '__main__':
     main()
+
