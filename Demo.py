@@ -69,7 +69,7 @@ def main():
     mysqlCommand = MySQLCommand()
     mysqlCommand.connectMysql()
     res = mysqlCommand.getStuNo()
-    for row in range(0, 600):
+    for row in range(0, 400):
         zhanghao = res[row][0]
         mysqlCommand.insertData(grade(zhanghao, 1))
     mysqlCommand.closeMysql()

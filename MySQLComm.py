@@ -41,15 +41,16 @@ class MySQLCommand(object):
                     updsql = """UPDATE send_grade SET score = '%s' WHERE stu_no = '%s' and course_no = '%s'""" % (d['score'], d['stu_no'], d['course_no'])
                     re = self.cursor.execute(updsql)
                     if re:
-                            print('Update score successfully!')
+                            idsql = """SELECT id from send_grade WHERE stu_no = '%s' and course_no = '%s'""" % (d['stu_no'], d['course_no'])
+                            self.cursor.execute(idsql)
+                            r = self.cursor.fetchall()
+                            print('Update score successfully! The id of data is %d' % r[0])
                     else:
                             print('Data has not changed')
                 except pymysql.Error as e:
                     # 发生错误时回滚
                     self.conn.rollback()
                     print("Update data failed，because %d: %s" % (e.args[0], e.args[1]))
-                except pymysql.Error as e:
-                    print("DBError，because %d: %s" % (e.args[0], e.args[1]))
                 self.conn.commit()
 
 
@@ -68,8 +69,6 @@ class MySQLCommand(object):
                     # 发生错误时回滚
                     self.conn.rollback()
                     print("Interrupt data failed，because %d: %s" % (e.args[0], e.args[1]))
-                except pymysql.Error as e:
-                    print("DBError，because %d: %s" % (e.args[0], e.args[1]))
                 self.conn.commit()
 
     def getStuNo(self):
